@@ -379,6 +379,7 @@ public class MainActivity extends AppCompatActivity {
             for (int i = 0; i < combo.length; i++) {
                 if (gameMap.get(combo[i]) == null) {
                     containsNull = true;
+                    break;
                 }
             }
             // no null value in combo
@@ -406,9 +407,10 @@ public class MainActivity extends AppCompatActivity {
         if (!gameOver) {
             //check for draw
             int sum = 0;
-            for (int i = 0; i < 9; i++) {
+            for (int i = 0; i < indices.length; i++) {
                 if (gameMap.get(indices[i]) == null) {
                     sum++;
+                    break;
                 }
             }
             if (sum == 0) {
