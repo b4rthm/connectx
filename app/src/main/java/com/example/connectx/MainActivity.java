@@ -183,8 +183,8 @@ public class MainActivity extends AppCompatActivity {
         indices = new String[height * width];
         indicesMap = new HashMap<String, Integer>();
         int i = 0;
-        for (int h = 1; h <= height; h++) {
-            for (int w = 1; w <= width; w++) {
+        for (int h = height; h >= 1; h--) {
+            for (int w = width; w >= 1; w--) {
                 gameMap.put("m" + h + w, null);
                 indices[i] = "m" + h + w;
                 indicesMap.put(indices[i], i);
