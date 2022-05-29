@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private Button twoPlayerButton;
     private ConstraintLayout inputs;
     private ConstraintLayout layout;
+    private int[] buttonContainerCoords;
 
     private void start() {
         gameOver = false;
@@ -67,21 +68,6 @@ public class MainActivity extends AppCompatActivity {
         }
         setTextCurrentPlayer();
         changeUI();
-    }
-
-    private void genMap(int height, int width) {
-        gameMap = new HashMap<String, Boolean>();
-        indices = new String[height * width];
-        indicesMap = new HashMap<String, Integer>();
-        int i = 0;
-        for (int h = 1; h <= height; h++) {
-            for (int w = 1; w <= width; w++) {
-                gameMap.put("m" + h + w, null);
-                indices[i] = "m" + h + w;
-                indicesMap.put(indices[i], i);
-                i++;
-            }
-        }
     }
 
     @Override
@@ -103,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         twoPlayerButton = findViewById(R.id.twoPlayer);
         startButton = findViewById(R.id.start);
 
-        EditText inputHeight = findViewById(R.id.width);
-        EditText inputWidth = findViewById(R.id.height);
+        EditText inputHeight = findViewById(R.id.height);
+        EditText inputWidth = findViewById(R.id.width);
         EditText inputNumX = findViewById(R.id.numx);
 
         EditText[] myEditTexts = {inputHeight, inputWidth, inputNumX};
@@ -133,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
             mainMenu = false;
             start();
             initViews();
+            buttonContainerCoords = new int[2];
+            buttonContainer.getLocationOnScreen(buttonContainerCoords);
             myView.invalidate();
             changeUI();
             maybeMoveFromKI();
@@ -158,22 +146,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void removeFokus(EditText[] myEditTexts, View v, MotionEvent event) {
-        for (EditText mEditText : myEditTexts) {
-            if (mEditText.isFocused()) {
-                if (event == null) {
-                    mEditText.clearFocus();
-                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                } else {
-                    Rect outRect = new Rect();
-                    mEditText.getGlobalVisibleRect(outRect);
-                    if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
-                        mEditText.clearFocus();
-                        InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    }
-                }
+    private void genMap(int height, int width) {
+        gameMap = new HashMap<String, Boolean>();
+        indices = new String[height * width];
+        indicesMap = new HashMap<String, Integer>();
+        int i = 0;
+        for (int h = 1; h <= height; h++) {
+            for (int w = 1; w <= width; w++) {
+                gameMap.put("m" + h + w, null);
+                indices[i] = "m" + h + w;
+                indicesMap.put(indices[i], i);
+                i++;
             }
         }
     }
@@ -243,12 +226,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
 
-                    if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         //Button Pressed
                         button.setHoverColor(turnPlayer1);
                         button.invalidate();
                     }
-                    if(event.getAction() == MotionEvent.ACTION_UP){
+                    else if (event.getAction() == MotionEvent.ACTION_UP) {
                         //finger was lifted
                         button.setHoverColor(null);
                         button.invalidate();
@@ -259,10 +242,29 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
-
         myView.init(mapWidth, mapHeight, slotSize);
         myView.setGameMap(gameMap);
         myView.draw(new Canvas(myBitmap));
+    }
+
+    private void removeFokus(EditText[] myEditTexts, View v, MotionEvent event) {
+        for (EditText mEditText : myEditTexts) {
+            if (mEditText.isFocused()) {
+                if (event == null) {
+                    mEditText.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                } else {
+                    Rect outRect = new Rect();
+                    mEditText.getGlobalVisibleRect(outRect);
+                    if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
+                        mEditText.clearFocus();
+                        InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    }
+                }
+            }
+        }
     }
 
     public boolean addElemToGameMap(int column) {
@@ -334,9 +336,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void isGameOver(String[] indices) {
-
-        System.out.println(numX);
-
         for (String[] combo : combos) {
             //check for null
             boolean containsNull = false;

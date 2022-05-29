@@ -5,8 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.View;
 
-public class MyButton extends androidx.appcompat.widget.AppCompatButton {
+public class MyButton extends View {
 
     private Boolean hover_player1;
     private Paint black;
