@@ -14,6 +14,8 @@ public class MyButton extends View {
     private Paint default_color;
     private Paint playerTwoColor;
     private Paint playerOneColor;
+    private Paint white;
+    private int state;
 
     public MyButton(Context context) {
         super(context);
@@ -26,9 +28,11 @@ public class MyButton extends View {
         hover_player1 = null;
 
         black = new Paint(Paint.ANTI_ALIAS_FLAG);
+        black.setStyle(Paint.Style.FILL);
         black.setColor(Color.BLACK);
 
         default_color = new Paint(Paint.ANTI_ALIAS_FLAG);
+        default_color.setStyle(Paint.Style.FILL);
         default_color.setColor(Color.LTGRAY);
 
         playerOneColor = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -48,10 +52,10 @@ public class MyButton extends View {
                 black);
 
         if(hover_player1 == null){
-            canvas.drawCircle(canvas.getWidth() / 2,
-                    canvas.getHeight() / 2,
-                    (float) (canvas.getHeight() / 2 * 0.78),
-                    default_color);
+                canvas.drawCircle(canvas.getWidth() / 2,
+                        canvas.getHeight() / 2,
+                        (float) (canvas.getHeight() / 2 * 0.78),
+                        default_color(state));
         }else{
             if(hover_player1){
                 canvas.drawCircle(canvas.getWidth() / 2,
@@ -68,7 +72,17 @@ public class MyButton extends View {
         }
     }
 
+    private Paint default_color(int state) {
+        int value = (int) (122 + 6 * state);
+        default_color.setColor(Color.argb(255, value, value, value));
+        return default_color;
+    }
+
     public void setHoverColor(Boolean hover_player1) {
         this.hover_player1 = hover_player1;
+    }
+
+    public void setState(int state){
+        this.state = state;
     }
 }

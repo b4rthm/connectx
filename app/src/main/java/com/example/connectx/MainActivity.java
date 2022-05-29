@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private Button twoPlayerButton;
     private ConstraintLayout inputs;
     private ConstraintLayout layout;
-    private int[] buttonContainerCoords;
+    private Thread myThread;
+    private MyButton[] myButtons;
 
     private void start() {
         gameOver = false;
@@ -111,6 +112,36 @@ public class MainActivity extends AppCompatActivity {
 
         tw_title.setText("Connect X");
 
+        Runnable myRunnable = new Runnable(){
+            @Override
+            public void run() {
+                int state = 0;
+                int max_state = 10;
+                boolean up = true;
+                while(!mainMenu) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (up){
+                        state++;
+                    } else {
+                        state--;
+                    }
+                    if (state >= max_state){
+                        up = false;
+                    } else if (state <= 0){
+                        up = true;
+                    }
+                    for(MyButton myButton: myButtons){
+                        myButton.setState(state);
+                        myButton.invalidate();
+                    }
+                }
+            }
+        };
+
         startButton.setOnClickListener(view -> {
             mapHeight = Integer.parseInt(inputHeight.getText().toString());
             mapWidth = Integer.parseInt(inputWidth.getText().toString());
@@ -119,11 +150,11 @@ public class MainActivity extends AppCompatActivity {
             mainMenu = false;
             start();
             initViews();
-            buttonContainerCoords = new int[2];
-            buttonContainer.getLocationOnScreen(buttonContainerCoords);
             myView.invalidate();
             changeUI();
             maybeMoveFromKI();
+            myThread = new Thread(myRunnable);
+            myThread.start();
         });
 
         resetButton.setOnClickListener(view -> {
@@ -144,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
             setTextKILevel();
             setTextKIActive();
         });
+
     }
 
     private void genMap(int height, int width) {
@@ -172,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
             tw_currentPlayer.setVisibility(View.INVISIBLE);
             buttonContainer.setVisibility(View.INVISIBLE);
             inputs.setVisibility(View.VISIBLE);
+            buttonContainer.setVisibility(View.INVISIBLE);
         } else {
             startButton.setVisibility(View.INVISIBLE);
             myView.setVisibility(View.VISIBLE);
@@ -182,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
             tw_currentPlayer.setVisibility(View.VISIBLE);
             buttonContainer.setVisibility(View.VISIBLE);
             inputs.setVisibility(View.INVISIBLE);
+            buttonContainer.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -200,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
 
         Bitmap myBitmap = Bitmap.createBitmap(gameWidth, gameHeight, Bitmap.Config.RGBA_F16);
 
+        myButtons = new MyButton[mapWidth];
         buttonContainer.removeAllViews();
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -240,6 +276,7 @@ public class MainActivity extends AppCompatActivity {
                     return false;
                 }
             });
+            myButtons[i-1] = button;
         }
 
         myView.init(mapWidth, mapHeight, slotSize);
@@ -385,7 +422,7 @@ public class MainActivity extends AppCompatActivity {
         gameOver = true;
         setTextCurrentPlayer();
 
-        buttonContainer.setClickable(false);
+        buttonContainer.setVisibility(View.INVISIBLE);
     }
 
     private void maybeMoveFromKI() {
