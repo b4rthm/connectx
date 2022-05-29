@@ -1,6 +1,7 @@
 package com.example.connectx;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView tw_title;
     private TextView tw_kiActive;
     private TextView tw_currentPlayer;
-    private Button kiLevelButton;
     private Map<String, Boolean> gameMap;
     private String[] indices;
     private Map<String, Integer> indicesMap;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private MyView myView;
     private int border;
     private boolean mainMenu;
+    private Button kiLevelButton;
     private Button startButton;
     private Button resetButton;
     private Button twoPlayerButton;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void start() {
         gameOver = false;
-        tw_title.setText("Connect X");
+        tw_title.setText(String.format("Connect %d", numX));
         combos = genCombos(mapHeight, mapWidth, numX);
         genMap(mapHeight, mapWidth);
 
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         border = 50;
         mainMenu = true;
 
-        start();
+        tw_title.setText("Connect X");
 
         startButton.setOnClickListener(view -> {
             mapHeight = Integer.parseInt(inputHeight.getText().toString());
@@ -132,11 +133,13 @@ public class MainActivity extends AppCompatActivity {
             mainMenu = false;
             start();
             initViews();
+            myView.invalidate();
             changeUI();
             maybeMoveFromKI();
         });
 
         resetButton.setOnClickListener(view -> {
+            tw_title.setText("Connect X");
             mainMenu = true;
             changeUI();
         });
@@ -222,8 +225,10 @@ public class MainActivity extends AppCompatActivity {
         params.width = slotSize;
         params.height = params.width;
         for (int i = 1; i <= mapWidth; i++) {
-            Button button = new Button(this);
+            MyButton button = new MyButton(this);
+            button.init();
             button.setLayoutParams(params);
+            button.setBackground(null);
             buttonContainer.addView(button);
             final int column = i;
             button.setOnClickListener(view -> {
@@ -233,7 +238,27 @@ public class MainActivity extends AppCompatActivity {
                     myView.invalidate();
                 }
             });
+
+            button.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+
+                    if(event.getAction() == MotionEvent.ACTION_DOWN){
+                        //Button Pressed
+                        button.setHoverColor(turnPlayer1);
+                        button.invalidate();
+                    }
+                    if(event.getAction() == MotionEvent.ACTION_UP){
+                        //finger was lifted
+                        button.setHoverColor(null);
+                        button.invalidate();
+                    }
+
+                    return false;
+                }
+            });
         }
+
 
         myView.init(mapWidth, mapHeight, slotSize);
         myView.setGameMap(gameMap);
@@ -285,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // vertikale
         for (int i = 1; i <= width; i++) {
-            for (int j = 1; j <= height - (x-1); j++) {
+            for (int j = 1; j <= height - (x - 1); j++) {
                 String[] combo = new String[x];
                 for (int k = 0; k < x; k++) {
                     int _j = j + k;
@@ -295,8 +320,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         // horizontale
-        for (int i = 1; i <= width - (x-1); i++) {
-            for (int j = 1; j <= height ; j++) {
+        for (int i = 1; i <= width - (x - 1); i++) {
+            for (int j = 1; j <= height; j++) {
                 String[] combo = new String[x];
                 for (int k = 0; k < x; k++) {
                     int _i = i + k;

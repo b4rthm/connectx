@@ -52,7 +52,7 @@ public class MyView extends View {
 
         backgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         backgroundPaint.setStyle(Paint.Style.FILL);
-        backgroundPaint.setColor(0xffb2beb5);
+        backgroundPaint.setColor(Color.LTGRAY);
 
         shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         shadowPaint.setColor(0xff101010);
@@ -62,42 +62,44 @@ public class MyView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int border = 8;
-        canvas.drawRect(new RectF(0, slotSize, canvas.getWidth(), slotSize * (mapHeight + 1)),
-                shadowPaint);
-        canvas.drawRect(new RectF(border,
-                        border +  slotSize,
-                        canvas.getWidth() - border,
-                        slotSize * (mapHeight + 1) -border),
-                backgroundPaint);
+        if (gameMap != null) {
+            int border = 8;
+            canvas.drawRect(new RectF(0, slotSize, canvas.getWidth(), slotSize * (mapHeight + 1)),
+                    shadowPaint);
+            canvas.drawRect(new RectF(border,
+                            border + slotSize,
+                            canvas.getWidth() - border,
+                            slotSize * (mapHeight + 1) - border),
+                    backgroundPaint);
 
-        int offset = 10;
-        for (int i = 1; i <= mapWidth; i++) {
-            for (int j = 1; j <= mapHeight; j++) {
+            int offset = 10;
+            for (int i = 1; i <= mapWidth; i++) {
+                for (int j = 1; j <= mapHeight; j++) {
 
-                // draw outline
-                canvas.drawCircle((i-1) * slotSize + slotSize / 2,
-                        j * slotSize + slotSize / 2,
-                        (float) (slotSize / 2 * 0.85),
-                        shadowPaint);
-
-                // draw circle
-                if (gameMap.get("m" + i + j) == null) {
-                    canvas.drawCircle((i-1) * slotSize + slotSize / 2,
+                    // draw outline
+                    canvas.drawCircle((i - 1) * slotSize + slotSize / 2,
                             j * slotSize + slotSize / 2,
-                            (float) (slotSize / 2 * 0.78),
-                            whitePaint);
-                } else {
-                    if (gameMap.get("m" + i + j)){
-                        canvas.drawCircle((i-1) * slotSize + slotSize / 2,
+                            (float) (slotSize / 2 * 0.85),
+                            shadowPaint);
+
+                    // draw circle
+                    if (gameMap.get("m" + i + j) == null) {
+                        canvas.drawCircle((i - 1) * slotSize + slotSize / 2,
                                 j * slotSize + slotSize / 2,
                                 (float) (slotSize / 2 * 0.78),
-                                playerOnePaint);
+                                whitePaint);
                     } else {
-                        canvas.drawCircle((i-1) * slotSize + slotSize / 2,
-                                j * slotSize + slotSize / 2,
-                                (float) (slotSize / 2 * 0.78),
-                                playerTwoPaint);
+                        if (gameMap.get("m" + i + j)) {
+                            canvas.drawCircle((i - 1) * slotSize + slotSize / 2,
+                                    j * slotSize + slotSize / 2,
+                                    (float) (slotSize / 2 * 0.78),
+                                    playerOnePaint);
+                        } else {
+                            canvas.drawCircle((i - 1) * slotSize + slotSize / 2,
+                                    j * slotSize + slotSize / 2,
+                                    (float) (slotSize / 2 * 0.78),
+                                    playerTwoPaint);
+                        }
                     }
                 }
             }
