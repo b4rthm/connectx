@@ -209,14 +209,13 @@ public class MainActivity extends AppCompatActivity {
             startButton.setVisibility(View.INVISIBLE);
             myView.setVisibility(View.VISIBLE);
             resetButton.setVisibility(View.VISIBLE);
-            kiLevelButton.setVisibility(View.VISIBLE);
-            twoPlayerButton.setVisibility(View.VISIBLE);
-            tw_kiActive.setVisibility(View.VISIBLE);
+            //kiLevelButton.setVisibility(View.VISIBLE);
+            //twoPlayerButton.setVisibility(View.VISIBLE);
+            //tw_kiActive.setVisibility(View.VISIBLE);
             tw_currentPlayer.setVisibility(View.VISIBLE);
             buttonContainer.setVisibility(View.VISIBLE);
             inputs.setVisibility(View.INVISIBLE);
             buttonContainer.setVisibility(View.VISIBLE);
-
         }
     }
 
