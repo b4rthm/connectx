@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Five-point star, upside down (apex pointing down), single outline. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:pathData="M12,22 L9.76,15.09 L2.49,15.09 L8.37,10.82 L6.12,3.91 L12,8.18 L17.88,3.91 L15.63,10.82 L21.51,15.09 L14.24,15.09 Z" />
+</vector>

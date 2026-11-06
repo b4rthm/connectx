@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Material 3 Color Palette - Custom ConnectX Theme -->
+    <!-- Primary -->
+    <color name="primary">#6750A4</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#EADDFF</color>
+    <color name="on_primary_container">#21005D</color>
+
+    <!-- Secondary -->
+    <color name="secondary">#625B71</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="secondary_container">#E8DEF8</color>
+    <color name="on_secondary_container">#1D192B</color>
+
+    <!-- Tertiary (Accent for player colors) -->
+    <color name="tertiary">#7D5260</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="tertiary_container">#FFD8E4</color>
+    <color name="on_tertiary_container">#31111D</color>
+
+    <!-- Error -->
+    <color name="error">#B3261E</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="error_container">#F9DEDC</color>
+    <color name="on_error_container">#410E0B</color>
+
+    <!-- Background / Surface -->
+    <color name="background">#FFFBFE</color>
+    <color name="on_background">#1C1B1F</color>
+    <color name="surface">#FFFBFE</color>
+    <color name="on_surface">#1C1B1F</color>
+    <color name="surface_variant">#E7E2EC</color>
+    <color name="on_surface_variant">#49454F</color>
+    <color name="outline">#79747E</color>
+    <color name="outline_variant">#CAC4D0</color>
+
+    <!-- Player Colors -->
+    <color name="player1">#7D2A3A</color>      <!-- Bordeaux - Player 1 -->
+    <color name="player1_light">#C76B7A</color>
+    <color name="player1_dark">#4E1622</color>
+    <color name="player2">#006D77</color>      <!-- Teal - Player 2 -->
+    <color name="player2_light">#83C5BE</color>
+    <color name="player2_dark">#004D52</color>
+
+    <!-- Board -->
+    <color name="board_bg">#1D1D1D</color>
+    <color name="board_notch">#101010</color>
+    <color name="slot_empty">#3A3A3A</color>
+    <color name="slot_stroke">#2A2A2A</color>
+
+    <!-- Shadows & Overlays -->
+    <color name="shadow_ambient">#0F000000</color>
+    <color name="shadow_spot">#1A000000</color>
+    <color name="scrim">#7F000000</color>
+
+    <!-- Legacy support -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,4 +62,52 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Small icon button (New Game) -->
+    <color name="icon_muted">#8E8E93</color>
+    <color name="icon_btn_bg">#1F8E8E93</color>
+
+    <!-- vs. AI switch -->
+    <color name="switch_on">#5FD3C4</color>
+    <color name="switch_off">#B4B4BA</color>
+
+    <!-- Appearance picker: disc color palette (24 base colors) -->
+    <color name="palette0">#7D2A3A</color><!-- bordeaux -->
+    <color name="palette1">#006D77</color><!-- teal -->
+    <color name="palette2">#B8860B</color><!-- amber -->
+    <color name="palette3">#6A4C93</color><!-- purple -->
+    <color name="palette4">#3E6FA3</color><!-- blue -->
+    <color name="palette5">#558B2F</color><!-- green -->
+    <color name="palette6">#C65D24</color><!-- orange -->
+    <color name="palette7">#C25B78</color><!-- rose -->
+    <color name="palette8">#B03A48</color><!-- crimson -->
+    <color name="palette9">#B23A8F</color><!-- magenta -->
+    <color name="palette10">#5E35B1</color><!-- violet -->
+    <color name="palette11">#00838F</color><!-- cyan -->
+    <color name="palette12">#2196F3</color><!-- sky -->
+    <color name="palette13">#7CB342</color><!-- lime -->
+    <color name="palette14">#26A69A</color><!-- mint -->
+    <color name="palette15">#795548</color><!-- brown -->
+    <color name="palette16">#37474F</color><!-- charcoal -->
+    <color name="palette17">#607D8B</color><!-- slate -->
+    <color name="palette18">#1A237E</color><!-- navy -->
+    <color name="palette19">#EC407A</color><!-- pink -->
+    <color name="palette20">#9575CD</color><!-- lavender -->
+    <color name="palette21">#6B8E23</color><!-- olive -->
+    <color name="palette22">#D32F2F</color><!-- red -->
+    <color name="palette23">#F5F5F5</color><!-- white -->
+    <color name="palette24">#1A1A1A</color><!-- black -->
+    <color name="palette25">#757575</color><!-- gray -->
+    <color name="palette26">#BDBDBD</color><!-- silver -->
+    <color name="palette27">#C9A227</color><!-- gold -->
+    <color name="palette28">#F2E2B8</color><!-- cream -->
+    <color name="palette29">#8D5524</color><!-- chocolate -->
+    <color name="palette30">#3F51B5</color><!-- indigo -->
+    <color name="palette31">#33691E</color><!-- forest -->
+
+    <!-- Appearance picker: ring around the selected swatch/icon -->
+    <color name="picker_ring">#1A1A1A</color>
+
+    <!-- Appearance picker: subtle outline so swatches stay visible in light theme -->
+    <color name="picker_swatch_stroke">#59000000</color>
 </resources>

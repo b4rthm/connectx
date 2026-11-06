@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/setupFragment">
+
+    <fragment
+        android:id="@+id/setupFragment"
+        android:name="com.example.connectx.ui.SetupFragment"
+        android:label="Setup">
+        <action
+            android:id="@+id/action_setup_to_game"
+            app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_setup_to_appearance"
+            app:destination="@id/appearanceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appearanceFragment"
+        android:name="com.example.connectx.ui.AppearanceFragment"
+        android:label="Appearance" />
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.connectx.ui.GameFragment"
+        android:label="Game">
+        <!-- Pops back to the existing setup instead of stacking another one -->
+        <action
+            android:id="@+id/action_game_to_setup"
+            app:destination="@id/setupFragment"
+            app:popUpTo="@id/setupFragment" />
+    </fragment>
+</navigation>

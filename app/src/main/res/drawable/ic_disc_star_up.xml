@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Five-point star, apex up, drawn as a single hand-drawn-style outline
+     (a pentagon sits in the middle). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round"
+        android:pathData="M12,2 L14.24,8.91 L21.51,8.91 L15.63,13.18 L17.88,20.09 L12,15.82 L6.12,20.09 L8.37,13.18 L2.49,8.91 L9.76,8.91 Z" />
+</vector>

@@ -1,3 +1,49 @@
 <resources>
-    <string name="app_name">Connect X</string>
+    <string name="app_name">ConnectX</string>
+
+    <!-- Main Menu -->
+    <string name="title_connect_x">Connect X</string>
+    <string name="subtitle_configure">Configure your game</string>
+    <string name="btn_start">Start Game</string>
+    <string name="btn_done">Done</string>
+    <string name="title_appearance">Appearance</string>
+    <string name="btn_reset">New Game</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="dialog_new_game_title">Start new game?</string>
+    <string name="dialog_new_game_message">The current game will be lost. Do you really want to start over?</string>
+
+    <!-- Game Setup -->
+    <string name="label_width">Width</string>
+    <string name="label_height">Height</string>
+    <string name="label_connect">Connect</string>
+    <string name="hint_width">7</string>
+    <string name="hint_height">6</string>
+    <string name="hint_connect">4</string>
+    <string name="width_desc">Columns (4-20)</string>
+    <string name="height_desc">Rows (4-20)</string>
+    <string name="connect_desc">Win length (3-10)</string>
+
+    <!-- Game Screen -->
+    <string name="title_connect_n">Connect %d</string>
+    <string name="current_player_waiting">Waiting for %s</string>
+    <string name="player1_name">Player 1</string>
+    <string name="player2_name">Player 2</string>
+    <string name="player2_ai_name">Player 2 (AI)</string>
+    <string name="ki_name">AI</string>
+    <string name="game_over_winner">%s Wins!</string>
+    <string name="game_over_draw">It\'s a Draw!</string>
+
+    <!-- Settings -->
+    <string name="btn_ai_toggle">AI Opponent</string>
+    <string name="ai_active">AI Active</string>
+    <string name="ai_inactive">Two Player</string>
+    <string name="btn_ai_level">AI Level</string>
+    <string name="ai_level_casual">Casual</string>
+    <string name="ai_level_normal">Normal</string>
+
+    <!-- Accessibility -->
+    <string name="desc_column_button">Drop disc in column %d</string>
+    <string name="desc_game_board" formatted="false">Game board, %d columns by %d rows</string>
+    <string name="desc_current_player">Current player indicator</string>
+    <string name="desc_win_line">Winning line</string>
 </resources>

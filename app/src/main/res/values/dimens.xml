@@ -1,0 +1,27 @@
+<resources>
+    <!-- Spacing -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="spacing_md">16dp</dimen>
+    <dimen name="spacing_lg">24dp</dimen>
+    <dimen name="spacing_xl">32dp</dimen>
+
+    <!-- Component sizes -->
+    <dimen name="column_button_size">48dp</dimen>
+    <dimen name="column_button_margin">4dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="card_corner_radius">16dp</dimen>
+
+    <!-- Board -->
+    <dimen name="board_padding">16dp</dimen>
+    <dimen name="board_corner_radius">16dp</dimen>
+    <dimen name="slot_shadow_radius">8dp</dimen>
+    <dimen name="disc_shadow_offset">4dp</dimen>
+
+    <!-- Text -->
+    <dimen name="text_title">36sp</dimen>
+    <dimen name="text_subtitle">18sp</dimen>
+    <dimen name="text_body">16sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="text_input">24sp</dimen>
+</resources>

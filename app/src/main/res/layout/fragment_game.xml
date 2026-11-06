@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:padding="16dp">
+
+    <!-- Game Title / Status -->
+    <TextView
+        android:id="@+id/tvGameTitle"
+        style="@style/TextAppearance.ConnectX.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_connect_x"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+        Board: fills the space between title and bottom bar.
+        Internally the grid is biased upward, leaving room at the bottom
+        of this view for the balloon to dangle before the coin flies in.
+        Press & hold on a column to preview the disc, release to drop it.
+    -->
+    <com.example.connectx.view.BoardView
+        android:id="@+id/boardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGameTitle" />
+
+    <!-- Bottom bar: small New Game icon button + current player status -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- New Game: discreet icon-only button with a power symbol -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            app:backgroundTint="@color/icon_btn_bg"
+            app:cornerRadius="22dp"
+            app:icon="@drawable/ic_power"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="22dp"
+            app:iconTint="@color/icon_muted" />
+
+        <!-- Current Player Indicator -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipCurrentPlayer"
+            style="@style/Widget.ConnectX.Chip.Player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:checkable="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:text="@string/current_player_waiting"
+            app:chipIcon="@drawable/ic_disc_star_up"
+            app:chipIconTint="@color/player1"
+            app:closeIcon="@null" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

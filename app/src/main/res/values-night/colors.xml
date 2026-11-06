@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 Dark Theme Colors -->
+    <color name="primary">#D0BCFF</color>
+    <color name="on_primary">#381E72</color>
+    <color name="primary_container">#4F378B</color>
+    <color name="on_primary_container">#EADDFF</color>
+
+    <color name="secondary">#CCC2DC</color>
+    <color name="on_secondary">#332D41</color>
+    <color name="secondary_container">#4A4458</color>
+    <color name="on_secondary_container">#E8DEF8</color>
+
+    <color name="tertiary">#EFB8C8</color>
+    <color name="on_tertiary">#492532</color>
+    <color name="tertiary_container">#633B48</color>
+    <color name="on_tertiary_container">#FFD8E4</color>
+
+    <color name="error">#F2B8B5</color>
+    <color name="on_error">#601410</color>
+    <color name="error_container">#8C1D18</color>
+    <color name="on_error_container">#F9DEDC</color>
+
+    <color name="background">#1C1B1F</color>
+    <color name="on_background">#E6E1E5</color>
+    <color name="surface">#1C1B1F</color>
+    <color name="on_surface">#E6E1E5</color>
+    <color name="surface_variant">#49454F</color>
+    <color name="on_surface_variant">#CAC4D0</color>
+    <color name="outline">#938F99</color>
+    <color name="outline_variant">#49454F</color>
+
+    <!-- Player Colors (adjusted for dark mode) -->
+    <color name="player1">#C05C6E</color>
+    <color name="player1_light">#E29AA6</color>
+    <color name="player1_dark">#8C3A49</color>
+    <color name="player2">#4EC9B0</color>
+    <color name="player2_light">#83F5E0</color>
+    <color name="player2_dark">#00987F</color>
+
+    <color name="board_bg">#121212</color>
+    <color name="board_notch">#0A0A0A</color>
+    <color name="slot_empty">#2C2C2C</color>
+    <color name="slot_stroke">#3A3A3A</color>
+
+    <color name="icon_muted">#9A9AA0</color>
+    <color name="icon_btn_bg">#26FFFFFF</color>
+
+    <color name="switch_on">#4EC3B7</color>
+    <color name="switch_off">#8E8E93</color>
+
+    <!-- Appearance picker: disc color palette (24 base colors, night) -->
+    <color name="palette0">#C05C6E</color>
+    <color name="palette1">#4EC9B0</color>
+    <color name="palette2">#E8C15A</color>
+    <color name="palette3">#A78BD4</color>
+    <color name="palette4">#6FA8DC</color>
+    <color name="palette5">#86BF6B</color>
+    <color name="palette6">#E89A5B</color>
+    <color name="palette7">#E58AA8</color>
+    <color name="palette8">#E07080</color>
+    <color name="palette9">#E070C0</color>
+    <color name="palette10">#B39DDB</color>
+    <color name="palette11">#4DD0E1</color>
+    <color name="palette12">#64B5F6</color>
+    <color name="palette13">#AED581</color>
+    <color name="palette14">#69D2C4</color>
+    <color name="palette15">#BCAAA4</color>
+    <color name="palette16">#78909C</color>
+    <color name="palette17">#90A4AE</color>
+    <color name="palette18">#5C6BC0</color>
+    <color name="palette19">#F48FB1</color>
+    <color name="palette20">#C5B3E8</color>
+    <color name="palette21">#AEB830</color>
+    <color name="palette22">#EF5350</color>
+    <color name="palette23">#FFFFFF</color>
+    <color name="palette24">#111111</color>
+    <color name="palette25">#9E9E9E</color>
+    <color name="palette26">#DADADA</color>
+    <color name="palette27">#E8CE72</color>
+    <color name="palette28">#FFF3D6</color>
+    <color name="palette29">#C08A52</color>
+    <color name="palette30">#7986CB</color>
+    <color name="palette31">#4CAF50</color>
+
+    <color name="picker_ring">#FFFFFF</color>
+
+    <color name="picker_swatch_stroke">#6BFFFFFF</color>
+</resources>
